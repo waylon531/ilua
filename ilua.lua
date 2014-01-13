@@ -19,7 +19,7 @@ g.setmetatable(_E, {
         return g.error("Attempt to assign to global variable '"..k.."'", 2)
     end
 })
-g.setfenv(1, _E)
+--g.setfenv(1, _E)
 
 -- imported global functions
 local format = g.string.format
@@ -653,7 +653,7 @@ function Ilua:eval_lua(line)
         return
     end
     -- compiled ok, evaluate the chunk
-    setfenv(chunk, self.env)
+    --setfenv(chunk, self.env)
     local ok, res = pcall(chunk)
     if not ok then
         self:output(res)
